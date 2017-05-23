@@ -1,6 +1,6 @@
 #/bin/bash
 export SPARK_HOME=/app/spark1.5
-export YARN_MASTER=yarn-cluster
+export YARN_MASTER=yarn-cluster　#YARN集群模式运行spark
 BOOK_HOME=/opt/data/ideaprojects/data-algorithms
 APP_JAR=$BOOK_HOME/target/data-algorithms-1.0-SNAPSHOT.jar
 INPUT=/data/secondary_sort/input/timeseries.txt

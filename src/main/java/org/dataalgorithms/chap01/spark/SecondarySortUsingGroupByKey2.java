@@ -83,6 +83,7 @@ public class SecondarySortUsingGroupByKey2 {
                     @Override
                     public Iterable<Tuple2<Integer, Integer>> call(Iterable<Tuple2<Integer, Integer>> v1) throws Exception {
                         List<Tuple2<Integer, Integer>> newList = new ArrayList<>(iterableToList(v1));
+                        //在内存中对归约器值排序，这种方案不具有可伸缩性
                         Collections.sort(newList, SparkTupleComparator.INSTANCE);
                         return newList;
                     }
