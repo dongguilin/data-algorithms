@@ -1,10 +1,10 @@
 #/bin/bash
-export SPARK_HOME=/app/spark1.5
+export SPARK_HOME=/app/spark2.1
 export SPARK_MASTER=spark://ubuntu:7077
 BOOK_HOME=/opt/data/ideaprojects/data-algorithms
 APP_JAR=$BOOK_HOME/target/data-algorithms-1.0-SNAPSHOT.jar
-INPUT=/data/secondary_sort/input/timeseries.txt
-OUTPUT=/data/secondary_sort/output/spark/groupbykey
+INPUT=/data/secondary_sort/input/chap01/timeseries.txt
+OUTPUT=/data/secondary_sort/output/chap01/spark/groupbykey
 $HADOOP_HOME/bin/hdfs dfs -rm -r $OUTPUT
 #在Spark独立集群上运行
 prog=org.dataalgorithms.chap01.spark.SecondarySortUsingGroupByKey

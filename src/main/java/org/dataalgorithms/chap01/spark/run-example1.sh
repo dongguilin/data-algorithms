@@ -1,5 +1,6 @@
 #/bin/bash
-export SPARK_HOME=/app/spark1.5
+export SPARK_HOME=/app/spark2.1
+export SCALA_HOME=/app/scala-2.11.11
 export SPARK_MASTER=spark://ubuntu:7077
 BOOK_HOME=/opt/data/ideaprojects/data-algorithms
 APP_JAR=$BOOK_HOME/target/data-algorithms-1.0-SNAPSHOT.jar

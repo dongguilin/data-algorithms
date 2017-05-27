@@ -1,11 +1,13 @@
 package org.dataalgorithms.util;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.filecache.DistributedCache;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ import java.util.List;
  * @author Mahmoud Parsian
  */
 public class HadoopUtil {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HadoopUtil.class);
 
     /**
      * Add all jar files to HDFS's distributed cache
@@ -51,6 +55,7 @@ public class HadoopUtil {
             return;
         }
         FileSystem fs = FileSystem.get(conf);
+        LOGGER.info("FileSystem.url:{}", fs.getUri().toString());
         List<FileStatus> jars = getDirectoryListing(hdfsJarDirectory, fs);
         for (FileStatus jar : jars) {
             Path jarPath = jar.getPath();
