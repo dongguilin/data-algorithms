@@ -29,7 +29,7 @@ object TopN {
     val input = sc.textFile(path)
     val pair = input.map(line => {
       val tokens = line.split(",")
-      (tokens(2).toInt, tokens)
+      (tokens(1).toInt, tokens)
     })
     val partitions = pair.mapPartitions(itr => {
       var sortedMap = SortedMap.empty[Int, Array[String]]
