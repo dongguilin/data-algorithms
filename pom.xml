@@ -39,6 +39,7 @@
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-math.version>2.2</commons-math.version>
         <fastjson.version>1.2.32</fastjson.version>
+        <cloud9.version>1.3.2</cloud9.version>
     </properties>
 
 
@@ -134,10 +135,18 @@
             <version>${commons-math.version}</version>
         </dependency>
 
+        <!-- json -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <!-- A Hadoop toolkit for working with big data -->
+        <dependency>
+            <groupId>edu.umd</groupId>
+            <artifactId>cloud9</artifactId>
+            <version>${cloud9.version}</version>
         </dependency>
 
 
@@ -214,6 +223,32 @@
                         <goals>
                             <goal>compile</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                            <useSubDirectoryPerType>true</useSubDirectoryPerType>
+                            <includeArtifactIds>
+                                fastjson,commons-math
+                            </includeArtifactIds>
+                            <silent>true</silent>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
