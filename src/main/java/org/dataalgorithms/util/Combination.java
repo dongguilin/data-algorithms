@@ -86,7 +86,7 @@ public class Combination {
      */
     public static void main(String[] args) {
         List<String> elements = Arrays.asList("a", "b", "c", "d", "e");
-        List<List<String>> combinations = findSortedCombinations(elements, 2);
+        List<List<String>> combinations = findSortedCombinations(elements, 3);
         System.out.println(combinations);
     }
 
