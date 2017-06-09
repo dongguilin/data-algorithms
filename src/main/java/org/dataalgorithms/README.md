@@ -19,5 +19,7 @@ Chapter 06: 移动平均
 Chapter 07: (Market Basket Analysis, MBA)购物篮分析
 ==========
 
+Chapter 08: 共同好友
+==========
 
 
