@@ -12,7 +12,6 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.Logger;
-import org.dataalgorithms.util.HadoopUtil;
 
 /**
  * This is the driver class to submit the MBA job.
@@ -71,7 +70,9 @@ public class MBADriver extends Configured implements Tool {
 
         // job.setJarByClass(MBADriver.class);
         // add jars to distributed cache
-        HadoopUtil.addJarsToDistributedCache(job, "/lib/");
+        //HadoopUtil.addJarsToDistributedCache(job, "/lib/");
+
+        FileSystem.get(getConf()).delete(new Path(outputPath), true);
 
 
         //input/output path
