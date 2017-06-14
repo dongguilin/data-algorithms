@@ -3,6 +3,7 @@ package org.dataalgorithms.chap09.scala
 import org.apache.spark.{SparkConf, SparkContext}
 
 /**
+  * FriendRecommendation: recommed friends...
   * Created by guilin on 6/12/17.
   */
 object FriendRecommendation {
